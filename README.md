@@ -2,10 +2,10 @@
 Multi-site enterprise network lab built in Packet Tracer featuring VLAN segmentation, inter-VLAN routing, OSPF dynamic routing with redistribution, NAT (PAT), DHCP with relay, ACL-based traffic control, and HSRP for gateway redundancy.
 # Enterprise Network Lab (Packet Tracer)
 
-## 📌 Overview
+##  Overview
 This project simulates a multi-site enterprise network with redundancy, dynamic routing, and security controls.
 
-## 🧠 Features Implemented
+## Features Implemented
 - VLAN segmentation (Users/Admin)
 - Inter-VLAN routing (Layer 3 switches)
 - Static routing → migrated to OSPF
@@ -14,13 +14,13 @@ This project simulates a multi-site enterprise network with redundancy, dynamic 
 - ACL for traffic filtering
 - HSRP for gateway redundancy
 
-## 🏢 Network Design
+## Network Design
 - Two sites: HQ and Branch
 - ISP router connecting both sites
 - Redundant core switches using HSRP
 - Access layer switches for end devices
 
-## 🔧 Technologies Used
+## Technologies Used
 - OSPF (dynamic routing)
 - HSRP (high availability)
 - NAT (overload)
@@ -28,13 +28,13 @@ This project simulates a multi-site enterprise network with redundancy, dynamic 
 - ACL
 - VLANs & trunking
 
-## 🖼️ Topology
+## Topology
 ![Topology](topology.png)
 
 ## 📂 Configurations
 See `/configs` folder for full device configurations.
 
-## 🎯 Key Takeaways
+## Key Takeaways
 - Designed scalable multi-site network
 - Implemented redundancy and failover
 - Transitioned from static to dynamic routing
