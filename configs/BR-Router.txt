@@ -1,0 +1,109 @@
+Building configuration...
+
+Current configuration : 1508 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R-BR
+!
+!
+!
+enable secret 5 $1$mERr$Bok4KDfVutXOJolNq009M/
+!
+!
+ip dhcp excluded-address 192.168.30.1 192.168.30.10
+ip dhcp excluded-address 192.168.40.1 192.168.40.10
+!
+ip dhcp pool VLAN30
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+ dns-server 8.8.8.8
+ip dhcp pool VLAN40
+ network 192.168.40.0 255.255.255.0
+ default-router 192.168.40.1
+ dns-server 8.8.8.8
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username draculo secret 5 $1$mERr$bYbZOZLCZRji0SUc/6fqa1
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524DJU4-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 10.0.0.13 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 10.0.0.9 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 3.3.3.3
+ log-adjacency-changes
+ redistribute static subnets 
+ network 10.0.0.8 0.0.0.3 area 0
+ network 10.0.0.12 0.0.0.3 area 0
+ network 192.168.30.0 0.0.0.255 area 0
+ network 192.168.40.0 0.0.0.255 area 0
+!
+ip classless
+ip route 192.168.30.0 255.255.255.0 10.0.0.10 
+ip route 192.168.40.0 255.255.255.0 10.0.0.10 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CAUTHORIZED ACCESS ONLY^C
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
